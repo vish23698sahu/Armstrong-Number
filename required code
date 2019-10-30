@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int placeValue=1, c=0, rem, num, sum=0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    
+    while(num/placeValue){
+        c++;
+        placeValue *= 10;
+    }//Loop to count the number of digits in the number
+    
+    placeValue=1;
+    while(num/placeValue){
+        rem = (num/placeValue) % 10;
+        sum = sum + pow(rem, c);    //getting the desired sum
+        placeValue *= 10;
+    }
+    
+    if(num == sum){
+        printf("%d is an Armstrong number", num);
+    }
+    else{
+    printf("%d is not an Armstrong number", num);
+    }
+    
+    return 0;
+}
